@@ -1,0 +1,152 @@
+package com.example.tests;
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.hamcrest.CoreMatchers.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+
+
+public class PressButton {
+  private WebDriver driver;
+  private String baseUrl;
+  private boolean acceptNextAlert = true;
+  private StringBuffer verificationErrors = new StringBuffer();
+  
+  
+  @Before
+  public void setUp() throws Exception {
+    driver = new FirefoxDriver();
+    baseUrl = "https://antycaptcha.amberteam.pl/exercises/exercise1?seed=6d412166-dfe1-44bd-8333-63a46026818f" ;
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+  }
+  
+  @Test1
+  public void PressButton() throws Exception {
+    // 1
+    driver.get(baseUrl + "/");
+    // 2
+    driver.findElement(By.id("btnButton1")).click();
+    // 3
+    driver.findElement(By.id("btnButton2”)).click();
+    // 4
+    driver.findElement(By.id("btnButton2”)).click();
+  }
+  
+   @After
+  public void  driverQuit{}{
+    driver.quit();
+    public void tearDown() throws Exception {
+    driver.quit();
+    String verificationErrorString = verificationErrors.toString();
+    if (!"".equals(verificationErrorString)) {
+      fail(verificationErrorString);
+    }
+  }
+  private boolean isElementPresent(By by) {
+    try {
+      driver.findElement(by);
+      return true;
+    } catch (NoSuchElementException e) {
+      return false;
+    }
+  }
+  private boolean isAlertPresent() {
+    try {
+      driver.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
+  }
+  private String closeAlertAndGetItsText() {
+    try {
+      Alert alert = driver.switchTo().alert();
+      String alertText = alert.getText();
+      if (acceptNextAlert) {
+        alert.accept();
+      } else {
+        alert.dismiss();
+      }
+      return alertText;
+    } finally {
+      acceptNextAlert = true;
+    }
+  }
+}
+  }
+  
+  
+public class EditBox {
+ private Webdriver driver;
+ private String baseUrl;
+ private boolean acceptNextAlert = true;
+ private StringBuffer verificationErrors = new StringBuffer();
+
+@Before
+
+public void setUp() throws Exception {
+Driver = new FirefoxDriver();
+baseUrl = "https://antycaptcha.amberteam.pl/exercises/exercise2?seed=6d412166-dfe1-44bd-8333-63a46026818f";
+driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+}
+
+
+@Test2
+public void EditBox() throws Exception {
+// 1 
+driver.get(baseUrl + "/");
+// 2 
+driver.findElement(By.id("t14”)).click();
+// 3
+driver.findElement(By.id("t14”)).sendKeys( "American line read”);
+// 4 
+driver.findElement(By.id("btnButton1")).click();
+  }
+  
+  
+  @After
+  public void driverQuit{}{
+    driver.quit();
+    public void tearDown() throws Exception {
+    driver.quit();
+    String verificationErrorString = verificationErrors.toString();
+    if (!"".equals(verificationErrorString)) {
+      fail(verificationErrorString);
+    }
+  }
+  private boolean isElementPresent(By by) {
+    try {
+      driver.findElement(by);
+      return true;
+    } catch (NoSuchElementException e) {
+      return false;
+    }
+  }
+  private boolean isAlertPresent() {
+    try {
+      driver.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
+  }
+  private String closeAlertAndGetItsText() {
+    try {
+      Alert alert = driver.switchTo().alert();
+      String alertText = alert.getText();
+      if (acceptNextAlert) {
+        alert.accept();
+      } else {
+        alert.dismiss();
+      }
+      return alertText;
+    } finally {
+      acceptNextAlert = true;
+    }
+  }
+}
+    }
+    }
